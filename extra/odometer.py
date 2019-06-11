@@ -18,7 +18,7 @@ def prevreading(presreading, readinglist):
 
 
 def differencebwreading(firstreading, secondreading, readinglist):
-    return readinglist.index(firstreading) - readinglist.find(secondreading)
+    return readinglist.index(firstreading) - readinglist.index(secondreading)
 
 
 def main(numofdigits):
