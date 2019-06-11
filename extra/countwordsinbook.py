@@ -1,4 +1,5 @@
 import sys
+import itertools
 from collections import Counter
 
 def get_all_words(filename):
