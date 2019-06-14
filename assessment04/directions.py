@@ -1,3 +1,5 @@
+import sys
+
 def nextpoint(lattpnt, dir, magnitude):
     dirdict = {"N": [0, 1], "S": [0, -1], "E": [1, 0], "W": [-1, 0]}
     distance = [magnitude * i for i in dirdict[dir]]
@@ -12,5 +14,5 @@ def terminus(lattpnt, directionlist):
     return destination
 
 
-print(terminus((-1, 1), ["1NE"]))
+print(terminus(sys.argv[1], sys.argv[2]))
 
