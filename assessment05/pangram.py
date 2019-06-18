@@ -5,6 +5,7 @@ import sys
 def ispangram(s):
     s = s.lower()
     s = s.replace(" ", "")
+    s = s.replace(".", "")
     countdict = (dict(Counter(s)))
     return set(string.ascii_lowercase) - set(countdict.keys()) == set()
 
