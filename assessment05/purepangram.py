@@ -1,31 +1,23 @@
 from collections import Counter
 import string
-import sys
-
-def pick(count, char):
-    vowelset = set("aeiou")
-    if count > 1 and char in vowelset:
-        return 1
-    if count > 1 and char not in vowelset:
-        return 2
-    if count == 3:
-        return 3
-    if count > 3:
-        return 4
-    return 0
-
 
 def calculate_index(count, char):
-    impureindexlist = [0, 0.5, 0.7, 1, 3]
-    return impureindexlist[pick(count, char)]
+    index = 0
+    vowelset = set("aeiou")
+    if count > 1 and char in vowelset:
+        index += 0.5
+    elif count > 1 and char not in vowelset:
+        index += 0.7
+    if count == 3:
+        index += 1
+    elif count > 3:
+        index += 3
+    return index
 
 
 def purityindexpangram(s):
     s = s.lower()
     s = s.replace(" ", "")
-    s = s.replace(".", "")
-    if len(set(s)) == 26:
-        return 0
     countdict = Counter(s)
     index = 0
     for char in countdict.keys():
@@ -33,6 +25,6 @@ def purityindexpangram(s):
         index += calculate_index(count, char)
     return index
 
-print(purityindexpangram(sys.argv[1]))
+print(purityindexpangram("TV quiz drag nymphs blew JFK cox"))
 
 
