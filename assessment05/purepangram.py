@@ -23,6 +23,7 @@ def calculate_index(count, char):
 def purityindexpangram(s):
     s = s.lower()
     s = s.replace(" ", "")
+    s = s.replace(".", "")
     if len(set(s)) == 26:
         return 0
     countdict = Counter(s)
