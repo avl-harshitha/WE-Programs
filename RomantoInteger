@@ -1,0 +1,22 @@
+def literal_arabic(preslit, nextlit):
+    rom_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000, ' ': 0}
+    if rom_dict[preslit] >= rom_dict[nextlit]:
+        return rom_dict[preslit]
+    return - rom_dict[preslit]
+
+
+def roman_arabic(rnum):
+    rnum = str(rnum).upper() + " "
+    arab_val = 0
+    for i in range(len(rnum) - 1):
+        arab_val += literal_arabic(rnum[i], rnum[i + 1])
+    return arab_val
+
+
+def test_roman_arabic():
+    print(roman_arabic("xvii"))
+    print(roman_arabic("xl"))
+    print(roman_arabic("mcmiv"))
+    print(roman_arabic("MMMcmlxxxvi"))
+    print(roman_arabic("MMMM"))
+    print(roman_arabic("C"))
